@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # # CHARts #
+# ## Count Code Characters ##
 # Programmers love numbers. Numbers help shape things, turn amorphous blobs
 # into definable structures. In that curiosity, I wrote myself a little utility
 # for displaying the kinds of characters I use in source code. This isn't

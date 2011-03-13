@@ -24,4 +24,4 @@ From the [annotated source code][annsrc]:
     - make pretty outputs
     - show stats by language
 
-[annsrc]: CHARts/raw/master/docs/charts.html
+[annsrc]: http://totolici.github.com/CHARts/docs/charts.html
