@@ -19,7 +19,7 @@ import sys
 _chardict = {}
 
 # An incomplete list of accepted filenames. Files with other extensions (or
-# without one) are not processed. Binary files using one of these exceptions
+# without one) are not processed. Binary files using one of these extensions
 # will be processed.
 _exts = ['a', 'ada', 'adb', 'ads', 'applescript', 'as', 'ascx', 'asm', 'asmx',
     'asp', 'aspx', 'awk', 'bib', 'c', 'cc', 'clj', 'cobol', 'coffee', 'conf',
