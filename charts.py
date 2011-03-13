@@ -103,20 +103,24 @@ def print_stats():
     alpha = 0
     digit = 0
     space = 0
-    # Compute how many of each class of character have been encountered.
+    other = 0
+    # Compute how many characters from each class have been encountered.
     for k in sorted(_chardict):
+        addval = _chardict[k]
         if k.isalpha():
-            alpha += _chardict[k]
+            alpha += addval
         elif k.isdigit():
-            digit += _chardict[k]
+            digit += addval
         elif k.isspace():
-            space += _chardict[k]
+            space += addval
+        else:
+            other += addval
         total += _chardict[k]
 
     sys.stdout.write('alpha: %s\n' % str(alpha).rjust(COL_WIDTH))
     sys.stdout.write('digit: %s\n' % str(digit).rjust(COL_WIDTH))
     sys.stdout.write('space: %s\n' % str(space).rjust(COL_WIDTH))
-    sys.stdout.write('other: %s\n' % str(total - (alpha + digit + space)).rjust(COL_WIDTH))
+    sys.stdout.write('other: %s\n' % str(other).rjust(COL_WIDTH))
     sys.stdout.write(('=' * (7 + COL_WIDTH)) + '\n')
     sys.stdout.write('total: %s\n' % str(total).rjust(COL_WIDTH))
 
