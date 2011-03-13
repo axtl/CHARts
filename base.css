@@ -1,0 +1,29 @@
+#altbox {
+    text-align: center;
+    padding-top: 10%;
+}
+
+h1 {
+    font-size: 500%;
+    padding-top: 7.5%;
+    padding-bottom: 5%;
+    border-top: 3px solid #222;
+    border-bottom: 2px solid #222;
+    color: #444;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: #666;
+}
+
+h2 a:before {
+    content: ' { ';
+    color: #ccc;
+}
+
+h2 a:after {
+    content: ' } ';
+    color: #ccc;
+}
