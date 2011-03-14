@@ -12,10 +12,10 @@ From the [annotated source code][annsrc]:
 * **completed**
     - it counts characters
     - it ignores some non-code files
+    - filter by file extension
 
 
 * **future**
-    - filter by file extension
     - show stats by keyboard row
         + QWERTY/DVORAK
         + non-US

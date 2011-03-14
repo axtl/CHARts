@@ -3,11 +3,11 @@
 # # CHARts #
 # ## Count Code Characters ##
 # Programmers love numbers. Numbers help shape things, turn amorphous blobs
-# into definable structures. In that curiosity, I wrote myself a little utility
-# for displaying the kinds of characters I use in source code. This isn't
-# particularly useful for scientific work, except maybe for helping people
-# decide which languages use more sigils, and if a particular language may
-# increase the risks of RSI.
+# into definable structures. Because of curiosity, I wrote myself a little
+# utility for displaying the kinds of characters I use in source code. This
+# isn't particularly useful for scientific work, except maybe for helping
+# people decide which languages use more sigils, and if a particular language
+# may increase the risks of RSI.
 
 #
 import getopt
@@ -18,14 +18,17 @@ import sys
 # Dictionary to store all the characters and their respective counts.
 _chardict = {}
 
+# Counter to track the number of files analyzed.
+_fnum = 0
+
 # An incomplete list of accepted filenames. Files with other extensions (or
 # without one) are not processed. Binary files using one of these extensions
 # will be processed.
 _exts = ['a', 'ada', 'adb', 'ads', 'applescript', 'as', 'ascx', 'asm', 'asmx',
     'asp', 'aspx', 'awk', 'bib', 'c', 'cc', 'clj', 'cobol', 'coffee', 'conf',
-    'cpp', 'cs', 'csd', 'css', 'cxx', 'd', 'dtd', 'e', 'erb', 'f', 'f90',
-    'for', 'fpp', 'h', 'hs', 'htaccess', 'htm', 'html', 'java', 'js', 'jsp',
-    'jsx', 'lhs', 'lisp', 'lsp', 'lua', 'm', 'm', 'markdown', 'md', 'mdown',
+    'cpp', 'cs', 'csd', 'css', 'cxx', 'd', 'diff', 'dtd', 'e', 'erb', 'f',
+    'f90', 'for', 'fpp', 'h', 'hs', 'htaccess', 'htm', 'html', 'java', 'js',
+    'jsp', 'jsx', 'lhs', 'lisp', 'lsp', 'lua', 'm', 'markdown', 'md', 'mdown',
     'ml', 'mm', 'orc', 'php', 'pl', 'plis', 'pm', 'pro', 'prolog', 'py', 'r',
     'rb', 'rhtml', 's', 'scala', 'sco', 'scpt', 'sh', 'sql', 'tcl', 'tex',
     'text', 'textile', 'tk', 'txt', 'vb', 'xhtm', 'xhtml', 'xml', 'xsd',
@@ -65,7 +68,9 @@ def main(argv):
             sys.stderr.write('The specified path does not exist: %s' % elem)
             sys.exit(ERR_INVALID)
         if os.path.isdir(fullpath):
-            count_folder(fullpath)
+            for root, dirs, files in os.walk(fullpath):
+                for fname in files:
+                    count_file(os.path.join(root, fname))
         else:
             count_file(fullpath)
 
@@ -78,27 +83,23 @@ def usage():
     sys.stdout.write('Usage:\n')
     sys.stdout.write('\t%s file_or_folder_1 <others ...>\n' % sys.argv[0])
 
-# Count the number of characters in the given file.
+# Verify that we should analyze this file (based on extension) and, if true, 
+# update the character stats
 
 def count_file(path):
+    global _fnum
     path_ext = os.path.splitext(path)[1][1:]
     if path_ext and path_ext in _exts:
+        _fnum += 1
         with open(path) as fd:
             for l in fd.readlines():
                 for c in l:
-                    v = _chardict.setdefault(c, 1)
+                    v = _chardict.setdefault(c, 0)
                     _chardict[c] = v + 1
-
-# Walk the given folder and trigger a count of all the files encountered, then
-# recurse into subfolders until the entire tree has been traversed.
-
-def count_folder(path):
-    pass
 
 # Prepares and prints the various statistics. More to come.
 
 def print_stats():
-    global _chardict
     total = 0
     alpha = 0
     digit = 0
@@ -117,6 +118,9 @@ def print_stats():
             other += addval
         total += _chardict[k]
 
+    sys.stdout.write('\n')
+    sys.stdout.write('files: %s\n' % str(_fnum).rjust(COL_WIDTH))
+    sys.stdout.write('\n')
     sys.stdout.write('alpha: %s\n' % str(alpha).rjust(COL_WIDTH))
     sys.stdout.write('digit: %s\n' % str(digit).rjust(COL_WIDTH))
     sys.stdout.write('space: %s\n' % str(space).rjust(COL_WIDTH))
