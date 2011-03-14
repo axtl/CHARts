@@ -35,11 +35,11 @@
         <h1>CHARts</h1>
 <h2>Count Code Characters</h2>
 <p>Programmers love numbers. Numbers help shape things, turn amorphous blobs
-into definable structures. In that curiosity, I wrote myself a little utility
-for displaying the kinds of characters I use in source code. This isn't
-particularly useful for scientific work, except maybe for helping people
-decide which languages use more sigils, and if a particular language may
-increase the risks of RSI.</p>
+into definable structures. Because of curiosity, I wrote myself a little
+utility for displaying the kinds of characters I use in source code. This
+isn't particularly useful for scientific work, except maybe for helping
+people decide which languages use more sigils, and if a particular language
+may increase the risks of RSI.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
@@ -71,65 +71,75 @@ increase the risks of RSI.</p>
         <div class="octowrap">
           <a class="octothorpe" href="#section-4">#</a>
         </div>
-        <p>An incomplete list of accepted filenames. Files with other extensions (or
-without one) are not processed. Binary files using one of these exceptions
-will be processed.</p>
+        <p>Counter to track the number of files analyzed.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="n">_exts</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;ada&#39;</span><span class="p">,</span> <span class="s">&#39;adb&#39;</span><span class="p">,</span> <span class="s">&#39;ads&#39;</span><span class="p">,</span> <span class="s">&#39;applescript&#39;</span><span class="p">,</span> <span class="s">&#39;as&#39;</span><span class="p">,</span> <span class="s">&#39;ascx&#39;</span><span class="p">,</span> <span class="s">&#39;asm&#39;</span><span class="p">,</span> <span class="s">&#39;asmx&#39;</span><span class="p">,</span>
-    <span class="s">&#39;asp&#39;</span><span class="p">,</span> <span class="s">&#39;aspx&#39;</span><span class="p">,</span> <span class="s">&#39;awk&#39;</span><span class="p">,</span> <span class="s">&#39;bib&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;cc&#39;</span><span class="p">,</span> <span class="s">&#39;clj&#39;</span><span class="p">,</span> <span class="s">&#39;cobol&#39;</span><span class="p">,</span> <span class="s">&#39;coffee&#39;</span><span class="p">,</span> <span class="s">&#39;conf&#39;</span><span class="p">,</span>
-    <span class="s">&#39;cpp&#39;</span><span class="p">,</span> <span class="s">&#39;cs&#39;</span><span class="p">,</span> <span class="s">&#39;csd&#39;</span><span class="p">,</span> <span class="s">&#39;css&#39;</span><span class="p">,</span> <span class="s">&#39;cxx&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;dtd&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">,</span> <span class="s">&#39;erb&#39;</span><span class="p">,</span> <span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;f90&#39;</span><span class="p">,</span>
-    <span class="s">&#39;for&#39;</span><span class="p">,</span> <span class="s">&#39;fpp&#39;</span><span class="p">,</span> <span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="s">&#39;hs&#39;</span><span class="p">,</span> <span class="s">&#39;htaccess&#39;</span><span class="p">,</span> <span class="s">&#39;htm&#39;</span><span class="p">,</span> <span class="s">&#39;html&#39;</span><span class="p">,</span> <span class="s">&#39;java&#39;</span><span class="p">,</span> <span class="s">&#39;js&#39;</span><span class="p">,</span> <span class="s">&#39;jsp&#39;</span><span class="p">,</span>
-    <span class="s">&#39;jsx&#39;</span><span class="p">,</span> <span class="s">&#39;lhs&#39;</span><span class="p">,</span> <span class="s">&#39;lisp&#39;</span><span class="p">,</span> <span class="s">&#39;lsp&#39;</span><span class="p">,</span> <span class="s">&#39;lua&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span> <span class="s">&#39;markdown&#39;</span><span class="p">,</span> <span class="s">&#39;md&#39;</span><span class="p">,</span> <span class="s">&#39;mdown&#39;</span><span class="p">,</span>
-    <span class="s">&#39;ml&#39;</span><span class="p">,</span> <span class="s">&#39;mm&#39;</span><span class="p">,</span> <span class="s">&#39;orc&#39;</span><span class="p">,</span> <span class="s">&#39;php&#39;</span><span class="p">,</span> <span class="s">&#39;pl&#39;</span><span class="p">,</span> <span class="s">&#39;plis&#39;</span><span class="p">,</span> <span class="s">&#39;pm&#39;</span><span class="p">,</span> <span class="s">&#39;pro&#39;</span><span class="p">,</span> <span class="s">&#39;prolog&#39;</span><span class="p">,</span> <span class="s">&#39;py&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span>
-    <span class="s">&#39;rb&#39;</span><span class="p">,</span> <span class="s">&#39;rhtml&#39;</span><span class="p">,</span> <span class="s">&#39;s&#39;</span><span class="p">,</span> <span class="s">&#39;scala&#39;</span><span class="p">,</span> <span class="s">&#39;sco&#39;</span><span class="p">,</span> <span class="s">&#39;scpt&#39;</span><span class="p">,</span> <span class="s">&#39;sh&#39;</span><span class="p">,</span> <span class="s">&#39;sql&#39;</span><span class="p">,</span> <span class="s">&#39;tcl&#39;</span><span class="p">,</span> <span class="s">&#39;tex&#39;</span><span class="p">,</span>
-    <span class="s">&#39;text&#39;</span><span class="p">,</span> <span class="s">&#39;textile&#39;</span><span class="p">,</span> <span class="s">&#39;tk&#39;</span><span class="p">,</span> <span class="s">&#39;txt&#39;</span><span class="p">,</span> <span class="s">&#39;vb&#39;</span><span class="p">,</span> <span class="s">&#39;xhtm&#39;</span><span class="p">,</span> <span class="s">&#39;xhtml&#39;</span><span class="p">,</span> <span class="s">&#39;xml&#39;</span><span class="p">,</span> <span class="s">&#39;xsd&#39;</span><span class="p">,</span>
-    <span class="s">&#39;xsl&#39;</span><span class="p">,</span> <span class="s">&#39;xslt&#39;</span><span class="p">]</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="n">_fnum</span> <span class="o">=</span> <span class="mi">0</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-5'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-5">#</a>
         </div>
-        <p>The column widht to use for printing</p>
+        <p>An incomplete list of accepted filenames. Files with other extensions (or
+without one) are not processed. Binary files using one of these extensions
+will be processed.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="n">COL_WIDTH</span> <span class="o">=</span> <span class="mi">10</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="n">_exts</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;ada&#39;</span><span class="p">,</span> <span class="s">&#39;adb&#39;</span><span class="p">,</span> <span class="s">&#39;ads&#39;</span><span class="p">,</span> <span class="s">&#39;applescript&#39;</span><span class="p">,</span> <span class="s">&#39;as&#39;</span><span class="p">,</span> <span class="s">&#39;ascx&#39;</span><span class="p">,</span> <span class="s">&#39;asm&#39;</span><span class="p">,</span> <span class="s">&#39;asmx&#39;</span><span class="p">,</span>
+    <span class="s">&#39;asp&#39;</span><span class="p">,</span> <span class="s">&#39;aspx&#39;</span><span class="p">,</span> <span class="s">&#39;awk&#39;</span><span class="p">,</span> <span class="s">&#39;bib&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;cc&#39;</span><span class="p">,</span> <span class="s">&#39;clj&#39;</span><span class="p">,</span> <span class="s">&#39;cobol&#39;</span><span class="p">,</span> <span class="s">&#39;coffee&#39;</span><span class="p">,</span> <span class="s">&#39;conf&#39;</span><span class="p">,</span>
+    <span class="s">&#39;cpp&#39;</span><span class="p">,</span> <span class="s">&#39;cs&#39;</span><span class="p">,</span> <span class="s">&#39;csd&#39;</span><span class="p">,</span> <span class="s">&#39;css&#39;</span><span class="p">,</span> <span class="s">&#39;cxx&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;diff&#39;</span><span class="p">,</span> <span class="s">&#39;dtd&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">,</span> <span class="s">&#39;erb&#39;</span><span class="p">,</span> <span class="s">&#39;f&#39;</span><span class="p">,</span>
+    <span class="s">&#39;f90&#39;</span><span class="p">,</span> <span class="s">&#39;for&#39;</span><span class="p">,</span> <span class="s">&#39;fpp&#39;</span><span class="p">,</span> <span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="s">&#39;hs&#39;</span><span class="p">,</span> <span class="s">&#39;htaccess&#39;</span><span class="p">,</span> <span class="s">&#39;htm&#39;</span><span class="p">,</span> <span class="s">&#39;html&#39;</span><span class="p">,</span> <span class="s">&#39;java&#39;</span><span class="p">,</span> <span class="s">&#39;js&#39;</span><span class="p">,</span>
+    <span class="s">&#39;jsp&#39;</span><span class="p">,</span> <span class="s">&#39;jsx&#39;</span><span class="p">,</span> <span class="s">&#39;lhs&#39;</span><span class="p">,</span> <span class="s">&#39;lisp&#39;</span><span class="p">,</span> <span class="s">&#39;lsp&#39;</span><span class="p">,</span> <span class="s">&#39;lua&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span> <span class="s">&#39;markdown&#39;</span><span class="p">,</span> <span class="s">&#39;md&#39;</span><span class="p">,</span> <span class="s">&#39;mdown&#39;</span><span class="p">,</span>
+    <span class="s">&#39;ml&#39;</span><span class="p">,</span> <span class="s">&#39;mm&#39;</span><span class="p">,</span> <span class="s">&#39;orc&#39;</span><span class="p">,</span> <span class="s">&#39;php&#39;</span><span class="p">,</span> <span class="s">&#39;pl&#39;</span><span class="p">,</span> <span class="s">&#39;plis&#39;</span><span class="p">,</span> <span class="s">&#39;pm&#39;</span><span class="p">,</span> <span class="s">&#39;pro&#39;</span><span class="p">,</span> <span class="s">&#39;prolog&#39;</span><span class="p">,</span> <span class="s">&#39;py&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span>
+    <span class="s">&#39;rb&#39;</span><span class="p">,</span> <span class="s">&#39;rhtml&#39;</span><span class="p">,</span> <span class="s">&#39;s&#39;</span><span class="p">,</span> <span class="s">&#39;scala&#39;</span><span class="p">,</span> <span class="s">&#39;sco&#39;</span><span class="p">,</span> <span class="s">&#39;scpt&#39;</span><span class="p">,</span> <span class="s">&#39;sh&#39;</span><span class="p">,</span> <span class="s">&#39;sql&#39;</span><span class="p">,</span> <span class="s">&#39;tcl&#39;</span><span class="p">,</span> <span class="s">&#39;tex&#39;</span><span class="p">,</span>
+    <span class="s">&#39;text&#39;</span><span class="p">,</span> <span class="s">&#39;textile&#39;</span><span class="p">,</span> <span class="s">&#39;tk&#39;</span><span class="p">,</span> <span class="s">&#39;txt&#39;</span><span class="p">,</span> <span class="s">&#39;vb&#39;</span><span class="p">,</span> <span class="s">&#39;xhtm&#39;</span><span class="p">,</span> <span class="s">&#39;xhtml&#39;</span><span class="p">,</span> <span class="s">&#39;xml&#39;</span><span class="p">,</span> <span class="s">&#39;xsd&#39;</span><span class="p">,</span>
+    <span class="s">&#39;xsl&#39;</span><span class="p">,</span> <span class="s">&#39;xslt&#39;</span><span class="p">]</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-6'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-6">#</a>
         </div>
-        <p>The error code for incorrect arguments (number or type of)</p>
+        <p>The column widht to use for printing</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="n">ERR_ARGS</span> <span class="o">=</span> <span class="mi">1</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="n">COL_WIDTH</span> <span class="o">=</span> <span class="mi">10</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-7'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-7">#</a>
         </div>
-        <p>The error code for invalid arguments (non-existent paths)</p>
+        <p>The error code for incorrect arguments (number or type of)</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="n">ERR_INVALID</span> <span class="o">=</span> <span class="mi">2</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="n">ERR_ARGS</span> <span class="o">=</span> <span class="mi">1</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-8'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-8">#</a>
         </div>
-        <p>Guru Meditation</p>
+        <p>The error code for invalid arguments (non-existent paths)</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="n">ERR_GURU</span> <span class="o">=</span> <span class="mi">127</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="n">ERR_INVALID</span> <span class="o">=</span> <span class="mi">2</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-9'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-9">#</a>
+        </div>
+        <p>Guru Meditation</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="n">ERR_GURU</span> <span class="o">=</span> <span class="mi">127</span></pre></div></pre></div>
+      </td>
+    </tr><tr id='section-10'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-10">#</a>
         </div>
         <p>The main function of this program parses the arguments and triggers the
 per-folder and per-file counters, as appropriate.</p>
@@ -137,20 +147,20 @@ per-folder and per-file counters, as appropriate.</p>
       <td class=code>
         <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
       </td>
-    </tr><tr id='section-10'>
+    </tr><tr id='section-11'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-10">#</a>
+          <a class="octothorpe" href="#section-11">#</a>
         </div>
         
       </td>
       <td class=code>
         <div class='highlight'><pre><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span></pre></div></pre></div>
       </td>
-    </tr><tr id='section-11'>
+    </tr><tr id='section-12'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-11">#</a>
+          <a class="octothorpe" href="#section-12">#</a>
         </div>
         <p>Parse command line arguments and set any flags as needed.</p>
       </td>
@@ -165,10 +175,10 @@ per-folder and per-file counters, as appropriate.</p>
             <span class="n">usage</span><span class="p">()</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></pre></div></pre></div>
       </td>
-    </tr><tr id='section-12'>
+    </tr><tr id='section-13'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-12">#</a>
+          <a class="octothorpe" href="#section-13">#</a>
         </div>
         <p>Look at each argument in the given list and decide if it needs to be
 processed as a file or a folder.
@@ -181,16 +191,18 @@ Quit if any of the given paths does not exist.</p>
             <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;The specified path does not exist: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">elem</span><span class="p">)</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">ERR_INVALID</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">fullpath</span><span class="p">):</span>
-            <span class="n">count_folder</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">fullpath</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="n">count_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">fname</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">count_file</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
 
     <span class="n">print_stats</span><span class="p">()</span></pre></div></pre></div>
       </td>
-    </tr><tr id='section-13'>
+    </tr><tr id='section-14'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-13">#</a>
+          <a class="octothorpe" href="#section-14">#</a>
         </div>
         <p>Print a helpful message to the user, informing of the various options the
 program understands.</p>
@@ -198,10 +210,10 @@ program understands.</p>
       <td class=code>
         <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
       </td>
-    </tr><tr id='section-14'>
+    </tr><tr id='section-15'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-14">#</a>
+          <a class="octothorpe" href="#section-15">#</a>
         </div>
         
       </td>
@@ -210,108 +222,95 @@ program understands.</p>
     <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;Usage:</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\t</span><span class="si">%s</span><span class="s"> file_or_folder_1 &lt;others ...&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></pre></div></pre></div>
       </td>
-    </tr><tr id='section-15'>
-      <td class=docs>
-        <div class="octowrap">
-          <a class="octothorpe" href="#section-15">#</a>
-        </div>
-        <p>Count the number of characters in the given file.</p>
-      </td>
-      <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
-      </td>
     </tr><tr id='section-16'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-16">#</a>
         </div>
-        
+        <p>Verify that we should analyze this file (based on extension) and, if true, 
+update the character stats</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="n">path_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="k">if</span> <span class="n">path_ext</span> <span class="ow">and</span> <span class="n">path_ext</span> <span class="ow">in</span> <span class="n">_exts</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
-                    <span class="n">v</span> <span class="o">=</span> <span class="n">_chardict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                    <span class="n">_chardict</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
       </td>
     </tr><tr id='section-17'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-17">#</a>
         </div>
-        <p>Walk the given folder and trigger a count of all the files encountered, then
-recurse into subfolders until the entire tree has been traversed.</p>
+        
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">_fnum</span>
+    <span class="n">path_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">path_ext</span> <span class="ow">and</span> <span class="n">path_ext</span> <span class="ow">in</span> <span class="n">_exts</span><span class="p">:</span>
+        <span class="n">_fnum</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="n">_chardict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">_chardict</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-18'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-18">#</a>
         </div>
-        
+        <p>Prepares and prints the various statistics. More to come.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_folder</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="k">pass</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
       </td>
     </tr><tr id='section-19'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-19">#</a>
         </div>
-        <p>Prepares and prints the various statistics. More to come.</p>
+        
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_stats</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">other</span> <span class="o">=</span> <span class="mi">0</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-20'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-20">#</a>
         </div>
-        
+        <p>Compute how many characters from each class have been encountered.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_stats</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">_chardict</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">digit</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">space</span> <span class="o">=</span> <span class="mi">0</span></pre></div></pre></div>
+        <div class='highlight'><pre><div class="highlight"><pre>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_chardict</span><span class="p">):</span>
+        <span class="n">addval</span> <span class="o">=</span> <span class="n">_chardict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="n">alpha</span> <span class="o">+=</span> <span class="n">addval</span>
+        <span class="k">elif</span> <span class="n">k</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="n">digit</span> <span class="o">+=</span> <span class="n">addval</span>
+        <span class="k">elif</span> <span class="n">k</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
+            <span class="n">space</span> <span class="o">+=</span> <span class="n">addval</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">other</span> <span class="o">+=</span> <span class="n">addval</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">_chardict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;files: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">_fnum</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;alpha: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;digit: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;space: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">space</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;other: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">&#39;=&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">7</span> <span class="o">+</span> <span class="n">COL_WIDTH</span><span class="p">))</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;total: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">total</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span></pre></div></pre></div>
       </td>
     </tr><tr id='section-21'>
       <td class=docs>
         <div class="octowrap">
           <a class="octothorpe" href="#section-21">#</a>
-        </div>
-        <p>Compute how many of each class of character have been encountered.</p>
-      </td>
-      <td class=code>
-        <div class='highlight'><pre><div class="highlight"><pre>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_chardict</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
-            <span class="n">alpha</span> <span class="o">+=</span> <span class="n">_chardict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">k</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-            <span class="n">digit</span> <span class="o">+=</span> <span class="n">_chardict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">k</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
-            <span class="n">space</span> <span class="o">+=</span> <span class="n">_chardict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        <span class="n">total</span> <span class="o">+=</span> <span class="n">_chardict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;alpha: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;digit: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;space: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">space</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;other: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">digit</span> <span class="o">+</span> <span class="n">space</span><span class="p">))</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">&#39;=&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">7</span> <span class="o">+</span> <span class="n">COL_WIDTH</span><span class="p">))</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;total: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">total</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">COL_WIDTH</span><span class="p">))</span></pre></div></pre></div>
-      </td>
-    </tr><tr id='section-22'>
-      <td class=docs>
-        <div class="octowrap">
-          <a class="octothorpe" href="#section-22">#</a>
         </div>
         <p>Run the program.</p>
       </td>
