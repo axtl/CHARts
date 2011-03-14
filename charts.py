@@ -34,7 +34,7 @@ _exts = ['a', 'ada', 'adb', 'ads', 'applescript', 'as', 'ascx', 'asm', 'asmx',
     'text', 'textile', 'tk', 'txt', 'vb', 'xhtm', 'xhtml', 'xml', 'xsd',
     'xsl', 'xslt']
 
-# The column widht to use for printing
+# The column width to use for printing
 COL_WIDTH = 10
 
 # The error code for incorrect arguments (number or type of)
